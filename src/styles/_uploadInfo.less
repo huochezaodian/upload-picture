@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+.upload-info{
+    overflow: auto;
+    background: #fff;
+    padding: 20px;
+    margin: 40px;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.3);
+	.title{
+	    line-height: 46px;
+	    border-bottom: 1px solid #f2f2f2;
+	    color: #333;
+	    padding-left: 20px;
+	}
+	.warning-info{
+		line-height: 30px;
+	    background-color: #fff8f2;
+	    padding-left: 30px;
+	    color: #ff8300;
+	}
+	.upload-wrap{
+		padding: 20px 0 0 30px;
+	}
+    .button{
+    	margin: 30px 0 50px 30px;
+    	font-size: 14px;
+    	color: #fff;
+    	.upload-button, .submit-button{
+    		width: 140px;
+    		line-height: 40px;
+    		text-align: center;
+    		border-radius: 2px;
+    		background: linear-gradient(-270deg, #5155ff, #566dff);
+    		margin-right: 20px;
+    		display: inline-block;
+    		&:hover{
+    			background: linear-gradient(-270deg,#4951ff,#4155ff);
+    			cursor: pointer;
+    		}
+    	}
+    }
+}
+
+.upload-box{
+	width: 515px;
+	.upload-header{
+		line-height: 60px;
+		overflow: hidden;
+		.image{
+			transition: all .5s;
+		}
+		&.closed{
+			
+			.image{
+				transform:rotate(-180deg);
+			}
+		}
+		.file-type{
+			float: left;
+			font-size: 13px;
+			color: #151515;
+			font-weight: 500;
+			&.isNeed{
+				&:before{
+					content: '*';
+					color: #ff8300;
+				}
+			}
+		}
+		.prompt-info{
+			float: left;
+			padding-left: 6px;
+			color: #999;
+		}
+		.file-count{
+			float: right;
+			padding-right: 10.3px;
+			.num{
+				padding-right: 6.8px;
+				line-height: 17px;
+				color: #4f59ff;
+			}
+		}
+	}
+	.upload-body{
+		line-height: 0;
+		border-bottom:1px solid rgba(0,0,0,0);
+		transition: all .5s;
+		.upload-list{
+	        display: inline-block;
+	        width: 161px;
+	        height: 110px;
+	        text-align: center;
+	        border-radius: 2px;
+	        overflow: hidden;
+	        background: #fff;
+	        position: relative;
+	        margin-right: 10px;
+	        margin-bottom: 5px;
+	        transition:all .5s;
+	    }
+	    &.closed{
+			border-bottom: 1px solid #f2f2f2;
+	    	.upload-list, .upload-button{
+	    		height: 0px;
+	    		border-color:rgba(0,0,0,0);
+	    		margin-bottom: 0;
+	    		&:hover{
+	    			border-color: rgba(0,0,0,0);
+	    		}
+	    	}
+	    }
+	    .upload-list .picture{
+	        width: 161px;
+	        height: 110px;
+	    }
+	    .upload-list-cover{
+	        position: absolute;
+	        top: 0;
+	        bottom: 0;
+	        left: 0;
+	        right: 0;
+	        background: rgba(0,0,0,0.20);
+	        cursor: pointer;
+	        .delete-image{
+	        	position: absolute;
+	        	right: -2px;
+	        	top: -1px;
+	        	z-index: 1;
+	        	width: 28px;
+	        	height: 27px;
+	        	background-image: url(../images/delate.png);
+	        }
+	        .bg-mask{
+				position: absolute;
+				right: 0;
+				top: 0;
+				background: rgba(0,0,0,0.30);
+				width: 27px;
+				height: 28px;
+				border-bottom-left-radius: 50%;
+	        }
+	        .eye{
+	        	width: 26px;
+	        	height: 26px;
+	        	position: absolute;
+	        	top: 50%;
+	        	left: 50%;
+	        	margin-top: -13px;
+	        	margin-left: -13px;
+	        	opacity: 0;
+	        	transition:opacity .5s;
+	        	background-image: url(../images/eyes.png);
+	        }
+	        .upload-progress{
+	        	position: absolute;
+			    left: 50%;
+			    top: 50%;
+			    color: #fff;
+			    transform: translate(-50%,-50%);
+	        }
+	        &:hover{
+	        	.eye{
+	        		opacity: 1;
+	        	}
+	        }
+	    }
+	    .upload-button{
+	        display: inline-block;
+		    width: 159px;
+		    height: 110px;
+		    text-align: center;
+		    overflow: hidden;
+    		background: #fff;
+    		margin-right: 10px;
+    		margin-bottom: 5px;
+    		border:1px dashed #f2f2f2;
+    		border-radius: 2px;
+    		box-sizing: border-box;
+	        transition:all .5s;
+    		&:hover{
+    			cursor: pointer;
+    			animation: color-change 2s;
+    			background-color: #f4f5ff;
+				border-color: #1564ee;
+    		}
+	        .icon-button{
+		        line-height: 110px;
+		        position: relative;
+			    .icon-img{
+			        position: absolute;
+			        top: 32px;
+			        left: 63px;
+			        width: 36px;
+			        height: 26px;
+			        background-image: url(../images/photo.png);
+			    }
+			    .icon-text{
+			        position: relative;
+			        top: 14px;
+			        color: #333;
+			    }
+		    }
+	    }
+	}
+	.show{
+		display: block;
+	}
+	.hide{
+		display: none;
+	}
+}
+
+@keyframes color-change {
+	0% {
+		border-color: #f2f2f2;
+		background-color: #fff;
+	}
+	100% {
+		background-color: #f4f5ff;
+		border-color: #1564ee;
+	}
+}
+
+
